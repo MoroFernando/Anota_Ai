@@ -1,0 +1,11 @@
+{
+  "name": "anota_ai",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app"
+  },
+  "author": "Fernando Moro",
+  "license": "ISC",
+  "description": "Aplicativo de notas simples"
+}
