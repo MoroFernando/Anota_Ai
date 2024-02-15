@@ -1,0 +1,19 @@
+<form action="/signup" method="POST">
+
+  <label for="emailCadastro">Email</label>
+  <input type="email" name="emailCadastro" id="emailCadastro"  value="{{email}}" required>
+
+  <label for="nomeCadastro">Nome</label>
+  <input type="text" name="nomeCadastro" id="nomeCadastro"  value="{{nome}}" required>
+
+  <label for="senhaCadastro">Senha</label>
+  <input type="password" name="senhaCadastro" id="senhaCadastro" value="{{senha}}" required>
+
+  <label for="confirmarSenhaCadastro">Confirmar senha</label>
+  <input type="password" name="confirmarSenhaCadastro" id="confirmarSenhaCadastro" value="{{confirmarSenha}}" required>
+
+  <button type="submit">Cadastrar usuário</button>
+
+</form>
+
+<a href="/usuarios">Voltar</a>

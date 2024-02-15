@@ -1,0 +1,12 @@
+{{#if users}}
+  <ul>
+    {{#each users}}
+      <li>{{this.email}}</li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>Sem usuários cadastrados</p>
+{{/if}}
+
+<a href="/auth">Cadastrar novo usuário</a>
+<a href="/">Voltar</a>
