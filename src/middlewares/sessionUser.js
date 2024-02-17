@@ -1,7 +1,7 @@
 function sessionUser() {
   return (req, res, next) => {
-    if(req.session && req.session.User){
-      res.locals.USER = req.session.User;
+    if(req.session && req.session.user){
+      res.locals.user = req.session.user;
     }
     next();
   }

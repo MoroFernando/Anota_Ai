@@ -1,7 +1,12 @@
 {{#if users}}
   <ul>
     {{#each users}}
-      <li>{{this.email}}</li>
+      <li>
+        {{this.email}} 
+        <a href="/runAs/{{this._id}}">Run As</a>
+        <a href="/deleteUser/{{this._id}}"><i class="material-icons">delete</i> </a>
+      </li>
+      <br><br> 
     {{/each}}
   </ul>
 {{else}}

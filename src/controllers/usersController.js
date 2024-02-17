@@ -2,33 +2,42 @@ const bcrypt = require('bcrypt');
 const User = require('../models/usersModel');
 const { model } = require('mongoose');
 
-exports.cadastro = async (req, res) => {
-  try {
-    // RECEBENDO DADOS DO FORMULÁRIO
-    const email = req.body.emailCadastro;
-    const nome = req.body.nomeCadastro;
-    const senha = req.body.senhaCadastro;
-    const confirmarSenha = req.body.confirmarSenhaCadastro;
+exports.signup = async (req, res) => {
+  // RECEBENDO DADOS DO FORMULÁRIO
+  const email = req.body.emailCadastro;
+  const nome = req.body.nomeCadastro;
+  const senha = req.body.senhaCadastro;
+  const confirmarSenha = req.body.confirmarSenhaCadastro;
 
+  // VALIDAÇÃO DE DADOS
+  if(!email || !nome || !senha || !confirmarSenha){
+    req.flash('error_msg', 'Preencha todos os campos');
+    return res.redirect('/auth');
+  }else if(senha !== confirmarSenha){
+    req.flash('error_msg', 'Senhas não conferem');
+    return res.redirect('/auth');
+  }
+
+  try {
     // BUSCA CADASTRO JA EXISTENTE
     if(await User.findOne({ email })){
       req.flash('error_msg', 'Email já cadastrado');
-      return res.render('auth');
-
-    }else {
-      // HASH NA SENHA
-      const hashSenha = await bcrypt.hash(senha, 10);
-
-      // CRIANDO USUÁRIO
-      const newUser = await User.create({ nome, email, senha: hashSenha });
-      req.session.User = newUser;
-      req.flash('success_msg', 'Usuário cadastrado com sucesso');
-      res.redirect('/');
+      return res.redirect('auth');
     }
+
+    // HASH NA SENHA
+    const hashSenha = await bcrypt.hash(senha, 10);
+
+    // CRIANDO USUÁRIO
+    const newUser = await User.create({ nome, email, senha: hashSenha });
+    req.session.user = newUser;
+    req.flash('success_msg', 'Usuário cadastrado com sucesso');
+    res.redirect('/');
+
   } catch(err){
     console.error(err);
     req.flash('error_msg', 'Erro inesperado');
-    return res.render('auth');
+    return res.redirect('auth');
   }
 };
 
@@ -40,5 +49,43 @@ exports.listAllUsers = async (req, res) => {
     console.error(err);
     req.flash('error_msg', 'Erro inesperado');
     return res.redirect('/');
+  }
+};
+
+exports.runAs = async (req, res) => {
+  const userId = req.params.id;
+
+  try{
+    const user = await User.findById(userId).lean();
+    if(!user){
+      req.flash('error_msg', 'Usuário não encontrado');
+      return res.redirect('/');
+    }
+    req.session.user = user;
+    return res.redirect('/');
+  }catch(err){
+    console.error(err);
+    req.flash('error_msg', 'Erro inesperado');
+    return res.redirect('/');
+  }
+};
+
+exports.deleteUser = async (req, res) => {
+  const userId = req.params.id;
+
+  try{
+    const user = await User.findById(userId);
+    if(!user){
+      req.flash('error_msg', 'Usuário não encontrado');
+      return res.redirect('/usuarios');
+    }
+    await User.deleteOne({ _id: userId });
+    req.flash('success_msg', 'Usuário deletado com sucesso');
+    req.session.user = null;
+    return res.redirect('/usuarios');
+  }catch(err){
+    console.error(err);
+    req.flash('error_msg', 'Erro inesperado');
+    return res.redirect('/usuarios');
   }
 };

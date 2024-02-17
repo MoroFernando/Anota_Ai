@@ -12,6 +12,7 @@ const app = express();
 // MIDDLEWARES -----------------------------------------------------------------
 const session = require('./src/middlewares/session');
 const sessionUser = require('./src/middlewares/sessionUser');
+const flash = require('connect-flash');
 const flashMessages = require('./src/middlewares/flashMessages');
 
 app.use(
@@ -20,6 +21,7 @@ app.use(
   express.static('public'),
   session(),
   sessionUser(),
+  flash(),
   flashMessages()
 );
 

@@ -1,3 +1,5 @@
-{{#if USER}}
-  <h2>Olá, {{USER.nome}}!</h2>
+{{#if user}}
+  <h2>{{user.nome}}!</h2>
+{{else}}
+  <h2>Usuário não logado</h2>
 {{/if}}
