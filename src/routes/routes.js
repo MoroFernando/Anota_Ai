@@ -1,7 +1,7 @@
 const Router = require('express').Router();
 
 Router.get('/', (req, res) => {
-  res.render('home');
+  res.render('pages/home');
 })
 
 Router.use(

@@ -1,6 +1,5 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/usersModel');
-const { model } = require('mongoose');
 
 exports.signup = async (req, res) => {
   // RECEBENDO DADOS DO FORMULÁRIO
@@ -44,7 +43,7 @@ exports.signup = async (req, res) => {
 exports.listAllUsers = async (req, res) => {
   try{
     const Allusers = await User.find().sort({ email: 'asc' }).lean();
-    res.render('users', { users: Allusers });
+    res.render('pages/users', { users: Allusers });
   }catch(err){
     console.error(err);
     req.flash('error_msg', 'Erro inesperado');

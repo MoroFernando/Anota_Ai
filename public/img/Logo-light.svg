@@ -1,7 +1,7 @@
 <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 950" width="950" height="950">
-	<title>&lt;Path&gt;</title>
+	<title>Logo-branca-svg</title>
 	<style>
-		.s0 { fill: #fff740 } 
+		.s0 { fill: #f6f5ff } 
 	</style>
 	<path id="&lt;Path&gt;" class="s0" d="m430.5 626.3l-241.7-207.4 107.3-121.9 131.6 127.1 276.8-328.8c-25.5-15.3-55.2-24.1-86.9-24.1h-366.7c-93.3 0-169.6 76.3-169.6 169.6v366.6c0 93.3 76.3 169.7 169.6 169.7h155.9l225.7 100.6v-101.3c86.4-7.7 154.7-80.7 154.7-169v-226.9l81.7-149z"/>
 </svg>

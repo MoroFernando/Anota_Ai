@@ -2,7 +2,7 @@ const Router = require('express').Router();
 const userController = require('../controllers/usersController');
 
 Router.get('/auth', (req, res) => {
-  res.render('auth');
+  res.render('pages/login', {layout: 'auth.hbs'});
 });
 
 Router.post('/signup', userController.signup);

@@ -1,0 +1,32 @@
+<div class="authBg">
+  <div class="authContainer">
+    <div class="authBanner">
+      <img src="/img/Logo-branca.svg" alt="Logo anota ai">
+      <span class="authBanner--logoTitle">Anota Aí</span>
+    </div>
+  </div>
+  <div class="authContainer authForms">
+    <form class="authForms--signup" action="/signup" method="POST">
+      <legend>Cadastro</legend>
+
+      <label for="emailCadastro">Email</label>
+      <input type="email" name="emailCadastro" id="emailCadastro" value="{{email}}">
+
+      <label for="nomeCadastro">Nome</label>
+      <input type="text" name="nomeCadastro" id="nomeCadastro" value="{{nome}}">
+
+      <label for="senhaCadastro">Senha</label>
+      <input type="password" name="senhaCadastro" id="senhaCadastro" value="{{senha}}">
+
+      <label for="confirmarSenhaCadastro">Confirmar senha</label>
+      <input type="password" name="confirmarSenhaCadastro" id="confirmarSenhaCadastro" value="{{confirmarSenha}}">
+      <span id="validationText"></span>
+
+      <button type="submit">Cadastrar usuário</button>
+    </form>
+  </div>
+</div>
+
+
+
+
