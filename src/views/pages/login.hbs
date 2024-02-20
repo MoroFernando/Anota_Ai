@@ -1,32 +1,36 @@
 <div class="authBg">
-  <div class="authContainer">
-    <div class="authBanner">
-      <img src="/img/Logo-branca.svg" alt="Logo anota ai">
-      <span class="authBanner--logoTitle">Anota Aí</span>
+    <div class="container">
+        <div class="authBanner">
+            <img src="/img/Logo-branca.svg" alt="Logo anota ai">
+            <span class="authBanner--logoTitle">Anota Aí</span>
+        </div>
     </div>
-  </div>
-  <div class="authContainer authForms">
-    <form class="authForms--signup" action="/signup" method="POST">
-      <legend>Cadastro</legend>
-
-      <label for="emailCadastro">Email</label>
-      <input type="email" name="emailCadastro" id="emailCadastro" value="{{email}}">
-
-      <label for="nomeCadastro">Nome</label>
-      <input type="text" name="nomeCadastro" id="nomeCadastro" value="{{nome}}">
-
-      <label for="senhaCadastro">Senha</label>
-      <input type="password" name="senhaCadastro" id="senhaCadastro" value="{{senha}}">
-
-      <label for="confirmarSenhaCadastro">Confirmar senha</label>
-      <input type="password" name="confirmarSenhaCadastro" id="confirmarSenhaCadastro" value="{{confirmarSenha}}">
-      <span id="validationText"></span>
-
-      <button type="submit">Cadastrar usuário</button>
-    </form>
-  </div>
+    <div class="container authForms">
+        <form class="authForms--signin" action="/signin" method="POST">
+            <legend>Entrar</legend>
+            <label for="emailLogin">Email</label>
+            <input type="email" name="emailLogin" id="emailLogin" value="{{email}}" required>
+            <label for="senhaLogin">Senha</label>
+            <input type="password" name="senhaLogin" id="senhaLogin" value="{{senha}}" required>
+            <button type="submit">Logar</button>
+        </form>
+        <form class="authForms--signup authForms--hidden" action="/signup" method="POST">
+            <legend>Criar conta</legend>
+            <label for="emailCadastro">Email</label>
+            <input type="email" name="emailCadastro" id="emailCadastro" value="{{email}}" required>
+            <label for="nomeCadastro">Nome</label>
+            <input type="text" name="nomeCadastro" id="nomeCadastro" value="{{nome}}" required>
+            <label for="senhaCadastro">Senha</label>
+            <input type="password" name="senhaCadastro" id="senhaCadastro" value="{{senha}}" required>
+            <label for="confirmarSenhaCadastro">Confirmar senha</label>
+            <input type="password" name="confirmarSenhaCadastro" id="confirmarSenhaCadastro" value="{{confirmarSenha}}"
+                required>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <div class="authToggle">
+            <span class="authToggle--text">Não tem uma conta?</span>
+            <span class="authToggle--link">Criar conta</span>
+        </div>
+        <span class="authFlashMsgs">{{> _flashMensagens}}</span>
+    </div>
 </div>
-
-
-
-

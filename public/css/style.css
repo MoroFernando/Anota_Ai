@@ -6,6 +6,9 @@
   --toggle-color: rgb(221, 221, 221);
   --text-color: rgb(112, 112, 112);
 
+  --success-color: #00C851;
+  --error-color: #FF4444;
+
   --primaryDropShadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -38,6 +41,32 @@ a {
   --primary-color: #e2dffd;
   --primary-color-light: #0d017c;
   --text-color: #FFFFFF;
+}
+
+
+/* FLASH MESSAGES ------------------------------------------------------------------------------------------------------------------------------*/
+
+.flash_msg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: #FFFFFF;
+    padding: 8px 24px;
+    border-radius: 8px;
+    margin: 2px;
+}
+
+.flash_msg.hidden {
+    opacity: 0;
+}
+
+.success_msg{
+    background-color: var(--success-color);
+}
+
+.error_msg{
+    background-color: var(--error-color);
 }
 
 
@@ -307,7 +336,7 @@ a {
   flex-grow: 1;
   background: url('/img/notes-bg.png') center/cover no-repeat;
 
-  & .authContainer {
+  & .container {
     display: flex;
     flex-direction: column;
     align-self: stretch;
@@ -315,34 +344,6 @@ a {
     align-content: center;
     flex-grow: 1;
     max-width: 50%;
-  }
-
-  & .authForms {
-    display: flex;
-    flex-direction: row;
-    background-color: var(--sidebar-color);
-    box-shadow: var(--primaryDropShadow);
-    align-items: center;
-  
-    & form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      flex-grow: 1;
-      max-width: 500px;
-    
-      & legend {
-        font-size: 32px;
-        font-weight: 600;
-      }
-
-      & input {
-        height: 40px;
-        padding: 2px 12px;
-        border-radius: 6px;
-        border: solid 2px #E3E3E3;
-      }
-    }
   }
 
   & .authBanner {
@@ -371,5 +372,87 @@ a {
       filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
     }
 
+  }
+
+  & .authForms {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--sidebar-color);
+    box-shadow: var(--primaryDropShadow);
+    align-items: center;
+  
+    & form.authForms--hidden{
+      display: none;
+    }
+
+    & form {
+      display: flex;
+      flex-direction: column;
+      min-width: 500px;
+    
+      & legend {
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 40px;
+      }
+
+      & input {
+        font-size: 16px;
+        height: 48px;
+        padding: 2px 20px;
+        border-radius: 6px;
+        border: none;
+        background-color: #F5F5F5;
+        margin-bottom: 20px;
+      }
+
+      & input:focus {
+        outline-color: var(--primary-color);
+      }
+
+      & label {
+        color: var(--text-color);
+      }
+
+      & button {
+        height: 48px;
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+        color: #FFFFFF;
+        margin-top: 40px;
+        background-color: var(--primary-color);
+      }
+
+      & button:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        transition: all 0.3s ease;
+      }
+    }
+
+    & .authToggle {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      margin-top: 40px;
+      flex-wrap: nowrap;
+      color: var(--text-color);
+    
+      & .authToggle--link {
+        color: var(--primary-color);
+        font-weight: 600;
+        text-decoration: underline;
+      }
+  
+      & .authToggle--link:hover{
+        cursor: pointer;
+      }
+    }
+
+    & .authFlashMsgs {
+        min-width: 500px;
+        margin-top: 40px;
+    }
   }
 }

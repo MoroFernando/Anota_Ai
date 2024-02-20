@@ -1,3 +1,5 @@
+// SIDEBAR ------------------------------------------------------------------------------------------------
+
 const navHeader = document.querySelector('.sideBar');
 const navLogo = document.querySelector('.sideBar--logo');
 const navToggle = document.querySelector('.sideBar--toggleIcon');

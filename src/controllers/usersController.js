@@ -40,6 +40,40 @@ exports.signup = async (req, res) => {
   }
 };
 
+exports.signin = async (req, res) => {
+    // RECEBENDO DADOS DO FORMULÁRIO
+    const email = req.body.emailLogin;
+    const senha = req.body.senhaLogin;
+
+    // VALIDAÇÃO DE DADOS
+    if (!email || !senha) {
+      req.flash('error_msg', 'Preencha todos os campos');
+      return res.redirect('/auth');
+    }
+
+    try {
+        // BUSCA SE USUÁRIO EXISTE
+        const user = await User.findOne({ email }).lean();
+        if (!user) {
+          req.flash('error_msg', 'Usuário não encontrado');
+          return res.redirect('/auth');
+        }
+
+        // VALIDA SENHA
+        if (await bcrypt.compare(senha, user.senha)) {
+          req.session.user = user;
+          return res.redirect('/');
+        } else {
+          req.flash('error_msg', 'Senha inválida');
+          return res.redirect('/auth');
+        }
+    } catch (err) {
+      console.error(err);
+      req.flash('error_msg', 'Erro inesperado');
+      return res.redirect('/auth');
+    }
+};
+
 exports.listAllUsers = async (req, res) => {
   try{
     const Allusers = await User.find().sort({ email: 'asc' }).lean();

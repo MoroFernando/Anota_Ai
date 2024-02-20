@@ -7,6 +7,8 @@ Router.get('/auth', (req, res) => {
 
 Router.post('/signup', userController.signup);
 
+Router.post('/signin', userController.signin);
+
 Router.get('/runAs/:id', userController.runAs);
 
 Router.get('/deleteUser/:id', userController.deleteUser);
