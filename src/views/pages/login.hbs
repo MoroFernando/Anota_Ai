@@ -6,31 +6,72 @@
         </div>
     </div>
     <div class="container authForms">
-        <form class="authForms--signin" action="/signin" method="POST">
+
+        {{!-- SIGNIN --}}
+        <form class="authForms--signin" action="/signin" method="POST" onsubmit="return validateSigninForm()">
+
             <legend>Entrar</legend>
-            <label for="emailLogin">Email</label>
-            <input type="email" name="emailLogin" id="emailLogin" value="{{email}}" required>
-            <label for="senhaLogin">Senha</label>
-            <input type="password" name="senhaLogin" id="senhaLogin" value="{{senha}}" required>
-            <button type="submit">Logar</button>
+
+            {{!-- EMAIL --}}
+            <div class="inputContainer">
+                <label for="emailLogin">Email</label>
+                <input type="email" name="emailLogin" id="emailLogin" value="{{email}}">
+                <span class="input__errorMsg emailLogin__errorMsg"></span>
+            </div>
+
+            {{!-- SENHA --}}
+            <div class="inputContainer">
+                <label for="senhaLogin">Senha</label>
+                <input type="password" name="senhaLogin" id="senhaLogin" value="{{senha}}">
+                <span class="input__errorMsg senhaLogin__errorMsg"></span>
+            </div>
+
+            <button type="submit" class="buttonLogin">Logar</button>
+
         </form>
-        <form class="authForms--signup authForms--hidden" action="/signup" method="POST">
+
+        {{!-- SIGNUP --}}
+        <form class="authForms--signup authForms--hidden" action="/signup" method="POST" onsubmit="return validateSignupForm()">
+
             <legend>Criar conta</legend>
-            <label for="emailCadastro">Email</label>
-            <input type="email" name="emailCadastro" id="emailCadastro" value="{{email}}" required>
-            <label for="nomeCadastro">Nome</label>
-            <input type="text" name="nomeCadastro" id="nomeCadastro" value="{{nome}}" required>
-            <label for="senhaCadastro">Senha</label>
-            <input type="password" name="senhaCadastro" id="senhaCadastro" value="{{senha}}" required>
-            <label for="confirmarSenhaCadastro">Confirmar senha</label>
-            <input type="password" name="confirmarSenhaCadastro" id="confirmarSenhaCadastro" value="{{confirmarSenha}}"
-                required>
-            <button type="submit">Cadastrar</button>
+
+            {{!-- EMAIL --}}
+            <div class="inputContainer">
+                <label for="emailCadastro">Email</label>
+                <input type="email" name="emailCadastro" id="emailCadastro" value="{{email}}">
+                <span class="input__errorMsg emailCadastro__errorMsg"></span>
+            </div>
+
+            {{!-- NOME --}}
+            <div class="inputContainer">
+                <label for="nomeCadastro">Nome</label>
+                <input type="text" name="nomeCadastro" id="nomeCadastro" value="{{nome}}">
+                <span class="input__errorMsg nomeCadastro__errorMsg"></span>
+            </div>
+
+            {{!-- SENHA --}}
+            <div class="inputContainer">
+                <label for="senhaCadastro">Senha</label>
+                <input type="password" name="senhaCadastro" id="senhaCadastro" value="{{senha}}">
+                <span class="input__errorMsg senhaCadastro__errorMsg"></span>
+            </div>
+
+            {{!-- CONFIRMAR SENHA --}}
+            <div class="inputContainer">
+                <label for="confirmarSenhaCadastro">Confirmar senha</label>
+                <input type="password" name="confirmarSenhaCadastro" id="confirmarSenhaCadastro" value="{{confirmarSenha}}">
+                <span class="input__errorMsg confirmarSenhaCadastro__errorMsg"></span>
+            </div>
+
+            <button type="submit" class="buttonCadastro">Cadastrar</button>
+
         </form>
+
         <div class="authToggle">
             <span class="authToggle--text">Não tem uma conta?</span>
             <span class="authToggle--link">Criar conta</span>
         </div>
+
         <span class="authFlashMsgs">{{> _flashMensagens}}</span>
     </div>
 </div>

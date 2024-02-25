@@ -396,22 +396,45 @@ a {
                 margin-bottom: 40px;
             }
 
-            & input {
-                font-size: 16px;
-                height: 48px;
-                padding: 2px 20px;
-                border-radius: 6px;
-                border: none;
-                background-color: #F5F5F5;
+            & .inputContainer{
+                display: flex;
+                flex-direction: column;
                 margin-bottom: 20px;
-            }
 
-            & input:focus {
-                outline-color: var(--primary-color);
-            }
+                & label {
+                    color: var(--text-color);
+                }
 
-            & label {
-                color: var(--text-color);
+                & input {
+                    font-size: 16px;
+                    height: 48px;
+                    padding: 2px 20px;
+                    border-radius: 6px;
+                    border: none;
+                    background-color: #F5F5F5;
+                }
+
+                & input:focus {
+                    outline-color: var(--primary-color);
+                }
+
+                /* INVALID VALUES INPUTS ---------------------------- */
+                & .input__errorMsg{
+                    display: none;
+                    color: var(--error-color);
+                    font-size: 14px;
+                    margin: 4px 4px; 
+                }
+
+                & input.invalid {
+                    border: 2px solid var(--error-color);
+                }
+
+                & input.invalid + .input__errorMsg {
+                    display: block;
+                }
+                /*--------------------------------------------------- */
+
             }
 
             & button {
@@ -456,15 +479,6 @@ a {
         }
     }
 }
-
-
-
-
-
-
-
-
-
 
 /* >= 1200px screen */
 @media (max-width: 1200px) {
