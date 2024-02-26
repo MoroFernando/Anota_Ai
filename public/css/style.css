@@ -34,14 +34,55 @@ a {
     color: var(--text-color);
 }
 
+/* CUSTOM SCROLLBAR ----------------------------------------------------------------------------------------------------------------------------*/
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-button {
+width: 0px;
+height: 0px;
+}
+::-webkit-scrollbar-thumb {
+background: var(--primary-color);
+border: 0px none #ffffff;
+border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: var(--primary-color);
+}
+::-webkit-scrollbar-thumb:active {
+background: var(--primary-color);
+}
+::-webkit-scrollbar-track {
+background: #00000000;
+border: 0px none #ffffff;
+border-radius: 100px;
+}
+::-webkit-scrollbar-track:hover {
+background: #00000000;
+}
+::-webkit-scrollbar-track:active {
+background: #00000000;
+}
+::-webkit-scrollbar-corner {
+background: transparent;
+}
+
+::-webkit-scrollbar-button {
+width: 8px;
+height: 8px;
+}
+
 
 /* DARK MODE COLORS ------------------------------------------------------------------------------------------------------------------------*/
 .darkMode {
-    --body-color: #071640;
-    --sidebar-color: #180063;
-    --primary-color: #e2dffd;
-    --primary-color-light: #0d017c;
+    --body-color: #000000;
+    --sidebar-color: #1E1E1E;
+    --primary-color: #B5B5B5;
+    --primary-color-light: #1E1E1E;
     --text-color: #FFFFFF;
+    --primaryDropShadow: 2px 2px 8px 4px rgba(255, 255, 255, 0.1);
 }
 
 
@@ -112,7 +153,7 @@ a {
             margin-left: 4px;
             font-size: 24px;
             font-weight: 600;
-            color: var(--primary-color);
+            color: var(--text-color);
         }
     }
 
@@ -346,7 +387,7 @@ a {
     flex-direction: column;
     gap: 12px;
     flex-grow: 1;
-    margin: 12px;
+    overflow: hidden;
 
     & header {
         display: flex;
@@ -358,6 +399,7 @@ a {
         padding: 12px 32px;
         border-radius: 20px;
         min-height: 80px;
+        margin: 12px 12px 0px;
 
         & .content--title {
             color: var(--text-color);
@@ -398,8 +440,65 @@ a {
         display: flex;
         flex-direction: column;
         border-radius: 20px;
+        padding: 32px 20px;
+        overflow: scroll;
+    }
+}
+
+/* NOTES ----------------------------------------------------------------------------------------------------------------------------------*/
+.notesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+
+    & .notes {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
         padding: 32px;
-        flex-grow: 1;
+        border-radius: 16px;
+        box-shadow: var(--primaryDropShadow);
+        background-color: var(--sidebar-color);
+        min-height: 320px;
+
+        & .notes__titulo {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-color);
+            max-height: 40px;
+        }
+
+        & .notes__content{
+            resize: none;
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-color);
+            width: 100%;
+            height: 200px;
+            background-color: transparent;
+            border: none;
+        }
+    }
+
+    & .emptyNotes {
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        box-shadow: none;
+        background-color: transparent;
+        border: dashed 2px var(--text-color);
+
+        & i {
+            font-size: 48px;
+            color: var(--text-color);
+        }
+
+        & span {
+            color: var(--text-color);
+            font-size: 18px;
+            font-weight: 500;
+        };
     }
 }
 

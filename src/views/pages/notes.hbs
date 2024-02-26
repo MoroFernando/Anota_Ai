@@ -1,3 +1,20 @@
-{{#each notes}}
-  {{notes.titulo}}
-{{/each}}
+<div class="notesGrid">
+    {{#each notes}}
+    
+        <div class="notes">
+            <h2 class="notes__titulo">{{this.titulo}}</h2>
+            <textarea class="notes__content" readonly disabled >{{this.conteudo}}</textarea>
+            <div class="notes__footer">
+                <i class="material-icons">edit</i>
+            </div>
+        </div>
+    
+        {{else}}
+    
+        <div class="notes emptyNotes">
+            <i class="material-icons">speaker_notes_off</i>
+            <span>Sem notas criadas...</span>
+        </div>
+    
+    {{/each}}
+</div>

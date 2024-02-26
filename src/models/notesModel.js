@@ -8,9 +8,14 @@ const noteSchema = database.Schema({
   conteudo: {
     type: String
   },
+  data_criacao: {
+    type: Date,
+    default: Date.now
+  },
   user_id: {
     type: database.Schema.Types.ObjectId,
-    ref: User.modelName
+    ref: User.modelName,
+    required: true
   }
 })
 
