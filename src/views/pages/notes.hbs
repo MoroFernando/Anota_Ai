@@ -3,9 +3,16 @@
     
         <div class="notes">
             <h2 class="notes__titulo">{{this.titulo}}</h2>
-            <textarea class="notes__content" readonly disabled >{{this.conteudo}}</textarea>
+            <textarea class="notes__content" readonly disabled placeholder="Conteúdo">{{this.conteudo}}</textarea>
             <div class="notes__footer">
-                <i class="material-icons">edit</i>
+                <div class="notes__footer--btn editBtn">
+                    <i class="material-icons">mode_edit_outline</i>
+                    <span>Editar</span>
+                </div>
+                <div class="notes__footer--btn deleteBtn">
+                    <i class="material-icons">delete</i>
+                    <span>Deletar</span>
+                </div>
             </div>
         </div>
     

@@ -5,10 +5,8 @@
     --primary-color-light: rgba(105, 92, 254, 0.1);
     --toggle-color: rgb(221, 221, 221);
     --text-color: rgb(112, 112, 112);
-
     --success-color: #00C851;
     --error-color: #FF4444;
-
     --primaryDropShadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -18,17 +16,14 @@
     box-sizing: border-box;
     font-family: Poppins;
 }
-
 body {
     height: 100vh;
     width: 100%;
     background-color: var(--body-color);
 }
-
 li {
     list-style: none;
 }
-
 a {
     text-decoration: none;
     color: var(--text-color);
@@ -68,7 +63,6 @@ background: #00000000;
 ::-webkit-scrollbar-corner {
 background: transparent;
 }
-
 ::-webkit-scrollbar-button {
 width: 8px;
 height: 8px;
@@ -79,7 +73,6 @@ height: 8px;
 .darkMode {
     --body-color: #000000;
     --sidebar-color: #1E1E1E;
-    --primary-color: #B5B5B5;
     --primary-color-light: #1E1E1E;
     --text-color: #FFFFFF;
     --primaryDropShadow: 2px 2px 8px 4px rgba(255, 255, 255, 0.1);
@@ -87,7 +80,6 @@ height: 8px;
 
 
 /* FLASH MESSAGES ------------------------------------------------------------------------------------------------------------------------------*/
-
 .flash_msg {
     display: flex;
     align-items: center;
@@ -475,9 +467,53 @@ height: 8px;
             font-weight: 400;
             color: var(--text-color);
             width: 100%;
+            padding: 0px 16px;
             height: 200px;
             background-color: transparent;
             border: none;
+        }
+
+        & .notes__footer {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: flex-end;
+
+            & .notes__footer--btn{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                background-color: var(--text-color);
+                padding: 10px;
+                border-radius: 20px;
+                color: var(--sidebar-color);
+                font-size: 14px;
+                letter-spacing: 1px;
+                transition: all 0.3s ease;
+
+                & i {
+                    font-size: 18px;
+                }
+
+                & span {
+                    display: none;
+                }
+            }
+
+            & .notes__footer--btn:hover {
+                padding: 10px 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                & span {
+                    display: block;
+                }
+            }
+
+            & .editBtn {
+                background-color: var(--primary-color);
+            }
         }
     }
 
