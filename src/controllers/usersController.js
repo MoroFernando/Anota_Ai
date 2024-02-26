@@ -30,7 +30,6 @@ exports.signup = async (req, res) => {
     // CRIANDO USUÁRIO
     const newUser = await User.create({ nome, email, senha: hashSenha });
     req.session.user = newUser;
-    req.flash('success_msg', 'Usuário cadastrado com sucesso');
     res.redirect('/');
 
   } catch(err){
@@ -72,6 +71,11 @@ exports.signin = async (req, res) => {
       req.flash('error_msg', 'Erro inesperado');
       return res.redirect('/auth');
     }
+};
+
+exports.signout = (req, res) => {
+    req.session.user = null;
+    res.redirect('/');
 };
 
 exports.listAllUsers = async (req, res) => {

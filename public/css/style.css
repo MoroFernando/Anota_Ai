@@ -120,6 +120,7 @@ a {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
+        gap: 12px;
 
         & .sideBar--toggleIcon {
             display: flex;
@@ -187,6 +188,14 @@ a {
             }
         }
 
+    }
+
+    & footer {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 12px; 
+
         & .sideBar--lightMode {
             display: flex;
             flex-direction: row;
@@ -225,6 +234,34 @@ a {
         & .sideBar--lightMode:hover {
             cursor: pointer;
         }
+
+        & .sideBar--logout {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            & a {
+                border-radius: 8px;
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            & a:hover {
+                cursor: pointer;
+            }
+
+            & i {
+                color: var(--text-color);
+                font-size: 20px;
+            }
+
+            & a {
+                font-size: 14px;
+                color: var(--text-color);
+            }
+        }
     }
 }
 
@@ -242,6 +279,7 @@ a {
     }
 
     & main {
+
         & .sideBar--toggleIcon {
             rotate: 180deg;
             margin-right: -20px;
@@ -260,6 +298,41 @@ a {
                     margin-right: 0px;
                 }
             }
+        }
+    }
+
+    & footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        & .sideBar--logout {
+            flex-direction: column;
+
+            & a {
+                padding: 10px;
+            }
+
+            & a:hover {
+                background-color: var(--primary-color);
+
+                & i {
+                    color: var(--sidebar-color);
+                }
+            }
+        }
+
+        & .sideBar--lightMode {
+            width: auto;
+
+            & .sideBar--lightModeIcon.dark {
+                transform: none;
+            }
+
+        }
+
+        span {
+            display: none;
         }
     }
 }

@@ -10,8 +10,16 @@
       <li><i class="material-icons">note</i><a href="/notas">Notas</a></li>
       <li><i class="material-icons">account_box</i><a href="/usuarios">Perfil</a></li>
     </ul>
+  </main>
+  <footer>
     <div class="sideBar--lightMode" title="Modo escuro">
       <span class="sideBar--lightModeIcon"><i class="material-icons">light_mode</i></span>
     </div>
-  </main>
+    <form action="/signout" method="POST" class="sideBar--logout">
+        <a href="#" onclick="this.parentNode.submit()" title="Sair">
+            <i class="material-icons">logout</i>
+            <span>Sair</span>
+        </a>
+    </form>
+  </footer>
 </nav>
