@@ -120,7 +120,6 @@ a {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        gap: 12px;
 
         & .sideBar--toggleIcon {
             display: flex;
@@ -154,38 +153,38 @@ a {
             margin-top: 12px;
             flex-grow: 1;
 
-            & li {
+            & a {
                 display: flex;
-                flex-direction: row;
                 align-items: center;
-                justify-content: center;
                 border-radius: 8px;
                 padding: 12px 8px;
+
+                & li {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
 
                 & i {
                     color: var(--primary-color);
                     font-size: 24px;
-                    margin-right: 12px;
-                }
-
-                & a {
-                    font-size: 16px;
-                    flex-grow: 1;
                 }
             }
 
-            & li:hover {
+            & a:hover {
+                cursor: pointer;
                 background-color: var(--primary-color);
                 transition: background-color 0.3s ease;
-
-                & i {
+                
+                & li {
                     color: var(--sidebar-color);
-                }
 
-                & a {
-                    color: var(--sidebar-color);
+                    & i {
+                        color: var(--sidebar-color);
+                    }
                 }
-            }
+            } 
+
         }
 
     }
@@ -286,16 +285,19 @@ a {
         }
 
         & .sideBar--menuOptions {
-            & li {
-                padding: 10px;
+
+            & a {
+                padding: 12px;
                 justify-content: center;
 
-                & a {
-                    display: none;
-                }
+                & li {
+                    & i {
+                        color: var(--primary-color);
+                    }
 
-                & i {
-                    margin-right: 0px;
+                    & span {
+                        display: none;
+                    }
                 }
             }
         }
