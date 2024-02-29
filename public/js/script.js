@@ -1,5 +1,4 @@
 // SIDEBAR ------------------------------------------------------------------------------------------------
-
 const navHeader = document.querySelector('.sideBar');
 const navLogo = document.querySelector('.sideBar--logo');
 const navToggle = document.querySelector('.sideBar--toggleIcon');
@@ -23,3 +22,22 @@ navLightMode.addEventListener('click', () => {
   navLightMode.title = (navLightMode.title === 'Modo claro') ?'Modo escuro' :'Modo claro';
   navLightModeIcon.textContent = (navLightModeIcon.textContent === 'dark_mode') ?'light_mode' :'dark_mode';
 });
+
+
+//  OPEN POPUPS ---------------------------------------------------------------------------
+const popupRemoverNota = document.getElementById('modal__removerNota');
+
+function openModal_removerNota(notaID) {
+
+    popupRemoverNota.showModal();
+    document.getElementById("removeNota_id").value = notaID;
+    console.log(notaID);
+
+}
+
+// FECHA POPUPS -------------------------------------------------------------------------
+popupRemoverNota.addEventListener('click', (event) => {
+    if(event.target == popupRemoverNota) popupRemoverNota.close();
+})
+
+ 

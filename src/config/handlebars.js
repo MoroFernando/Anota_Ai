@@ -4,6 +4,7 @@ function handlebars() {
   return express_handlebars.engine({
     helpers: require('./helpersHandlebars'),
     defaultLayout: 'main',
+    layoutsDir: 'src/views/layouts',
     extname: '.hbs'
   });
 }

@@ -9,7 +9,7 @@
                     <i class="material-icons">mode_edit_outline</i>
                     <span>Editar</span>
                 </div>
-                <div class="notes__footer--btn deleteBtn">
+                <div class="notes__footer--btn deleteBtn" onclick="openModal_removerNota('{{this._id}}', '{{this.titulo}}', '{{this.conteudo}}')">
                     <i class="material-icons">delete</i>
                     <span>Deletar</span>
                 </div>
@@ -22,6 +22,8 @@
             <i class="material-icons">speaker_notes_off</i>
             <span>Sem notas criadas...</span>
         </div>
-    
+
     {{/each}}
 </div>
+
+{{> _modalRemoveNote}}

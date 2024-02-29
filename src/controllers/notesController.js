@@ -3,7 +3,10 @@ const Nota = require('../models/notesModel');
 exports.getAllNotes = async (req, res) => {
   try{
     const notes = await Nota.find().lean();
-    res.render('pages/notes', { notes: notes });
+    res.render('pages/notes', { 
+        notes: notes,
+        tittle: 'Minhas Notas'
+    });
   }catch(err){
     console.error(err);
     req.flash('error_msg', 'Erro inesperado');
@@ -14,7 +17,10 @@ exports.getAllNotes = async (req, res) => {
 exports.getMyNotes = async (req, res) => {
     try{
         const myNotes = await Nota.find({user_id: req.session.user._id}).sort({data_criacao: 'desc'}).lean();
-        return res.render('pages/notes', { notes: myNotes });
+        return res.render('pages/notes', {
+            notes: myNotes,
+            title: 'Minhas Notas'
+        });
     }catch (err){
         console.error(err);
         req.flash('error_msg', 'Erro inesperado');

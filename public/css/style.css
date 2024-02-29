@@ -29,6 +29,87 @@ a {
     color: var(--text-color);
 }
 
+
+/* POPUPS ----------------------------------------------------------------------------------------------*/
+dialog[open] {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border-width: 0px;
+    outline: none;
+}
+
+dialog .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--sidebar-color);
+    padding: 40px;
+    border-radius: 8px;
+    min-width: 450px;
+    min-height: 400px;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, .2);
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); 
+}
+
+#modal__removerNota {
+    
+    & form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        gap: 8px;
+
+        & legend {
+            text-align: center;
+            width: 100%;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        & .modal__removerNota--btns {
+            display: flex;
+            gap: 20px;
+        }
+        
+        & button {
+            flex-grow: 1;
+            height: 48px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            color: #FFFFFF;
+            margin-top: 40px;
+            background-color: var(--primary-color);
+            outline: none;
+            transition: all, 0.3, ease;
+        }
+
+        & button:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            transition: all, 0.3, ease;
+        }
+
+        & .btnVoltar {
+            background-color: var(--text-color);
+        }
+
+        & .btnRemover {
+            background-color: var(--error-color);
+        }
+
+    }
+
+}
+
 /* CUSTOM SCROLLBAR ----------------------------------------------------------------------------------------------------------------------------*/
 ::-webkit-scrollbar {
     width: 6px;
@@ -102,7 +183,6 @@ height: 8px;
 .error_msg {
     background-color: var(--error-color);
 }
-
 
 /* SIDEBAR MENU -----------------------------------------------------------------------------------------------------------------------------*/
 .pageContainer {
