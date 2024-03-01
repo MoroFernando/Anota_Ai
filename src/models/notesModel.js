@@ -19,6 +19,6 @@ const noteSchema = database.Schema({
   }
 })
 
-const Nota = database.model('Notas', noteSchema);
+const Nota = database.model('notas', noteSchema);
 
 module.exports = Nota;

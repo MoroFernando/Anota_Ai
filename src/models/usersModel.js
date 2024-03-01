@@ -15,6 +15,6 @@ const userSchema = database.Schema({
   }
 })
 
-const User = database.model('User', userSchema);
+const User = database.model('users', userSchema);
 
 module.exports = User;

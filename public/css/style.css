@@ -47,7 +47,7 @@ dialog .container {
     background-color: var(--sidebar-color);
     padding: 40px;
     border-radius: 8px;
-    min-width: 450px;
+    min-width: 550px;
     min-height: 400px;
 }
 
@@ -111,6 +111,7 @@ dialog::backdrop {
         
         & span {
             color: var(--text-color);
+            text-align: center;
         }
 
         & button {
