@@ -4,8 +4,11 @@ module.exports = {
     return !value;
   },
 
-  json: function(context) {
-    return JSON.stringify(context);
+  json: function(objectHandlebars) {
+
+    jsonString = JSON.stringify(objectHandlebars);
+
+    return jsonString;
   }
 
 }

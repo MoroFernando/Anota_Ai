@@ -64,7 +64,7 @@ dialog::backdrop {
         flex-direction: column;
         justify-content: space-between;
         flex-grow: 1;
-        gap: 8px;
+        gap: 20px;
 
         & legend {
             text-align: center;
@@ -74,11 +74,45 @@ dialog::backdrop {
             color: var(--text-color);
         }
 
+        & .note {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--primaryDropShadow);
+            background-color: var(--sidebar-color);
+            min-height: 320px;
+    
+            & .note__titulo {
+                font-size: 24px;
+                font-weight: 600;
+                color: var(--text-color);
+                max-height: 40px;
+            }
+    
+            & .note__content{
+                resize: none;
+                font-size: 16px;
+                font-weight: 400;
+                color: var(--text-color);
+                width: 100%;
+                padding: 0px 16px;
+                height: 200px;
+                background-color: transparent;
+                border: none;
+            }
+        }
+
         & .modal__removerNota--btns {
             display: flex;
             gap: 20px;
         }
         
+        & span {
+            color: var(--text-color);
+        }
+
         & button {
             flex-grow: 1;
             height: 48px;
@@ -86,7 +120,6 @@ dialog::backdrop {
             border-radius: 6px;
             font-size: 18px;
             color: #FFFFFF;
-            margin-top: 40px;
             background-color: var(--primary-color);
             outline: none;
             transition: all, 0.3, ease;

@@ -23,16 +23,29 @@ navLightMode.addEventListener('click', () => {
   navLightModeIcon.textContent = (navLightModeIcon.textContent === 'dark_mode') ?'light_mode' :'dark_mode';
 });
 
+// FORAMATA ESCAPES JSON -------------------------------------------------------------------
 
-//  OPEN POPUPS ---------------------------------------------------------------------------
+function toJSON(string) {
+  return JSON.parse(string.replace(/\r\n/g, '\\r\\n'));
+}
+
+
+// POPUPS REMOVER NOTA ---------------------------------------------------------------------------
 const popupRemoverNota = document.getElementById('modal__removerNota');
 
-function openModal_removerNota(notaID) {
+function openModal_removerNota(nota) {
+
+    const notaJSON = toJSON(nota);
 
     popupRemoverNota.showModal();
-    document.getElementById("removeNota_id").value = notaID;
-    console.log(notaID);
 
+    document.getElementById("removeNota_id").value = notaJSON._id;
+    document.getElementById("removerNota--titulo").textContent = notaJSON.titulo;
+    document.getElementById("removerNota--conteudo").value = notaJSON.conteudo;
+}
+
+function closeModal_removerNota(){
+    popupRemoverNota.close();
 }
 
 // FECHA POPUPS -------------------------------------------------------------------------

@@ -1,11 +1,19 @@
 <dialog id="modal__removerNota">
     <div class="container">
         <form action="" method="POST">
+
             <legend>Remover Nota</legend>
+
+            <div class="note">
+                <h2 class="note__titulo" id="removerNota--titulo"></h2>
+                <textarea class="note__content" id="removerNota--conteudo" readonly disabled placeholder="Conteúdo"></textarea>
+            </div>
+
+            <span>Tem certeza que deseja remover essa nota?</span>
             <input type="hidden" name="_id" id="removeNota_id">
             <div class="modal__removerNota--btns">
                 <button class="btnRemover" type="submit">Deletar</button>
-                <button class="btnVoltar">Voltar</button>
+                <button class="btnVoltar" type="button" onclick="closeModal_removerNota()">Cancelar</button>
             </div>
         </form>
     </div>
