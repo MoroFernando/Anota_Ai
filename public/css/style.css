@@ -133,6 +133,7 @@ dialog::backdrop {
 
         & .btnVoltar {
             background-color: var(--text-color);
+            color: var(--sidebar-color);
         }
 
         & .btnRemover {

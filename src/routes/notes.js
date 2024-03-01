@@ -14,4 +14,6 @@ Router.get('/novaNota', authOnly, (req, res) => {
 
 Router.post('/novaNota', authOnly, notesController.createNote);
 
+Router.post('/removerNota', authOnly, notesController.deleteNote);
+
 module.exports = Router;

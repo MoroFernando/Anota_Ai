@@ -24,7 +24,6 @@ navLightMode.addEventListener('click', () => {
 });
 
 // FORAMATA ESCAPES JSON -------------------------------------------------------------------
-
 function toJSON(string) {
   return JSON.parse(string.replace(/\r\n/g, '\\r\\n'));
 }

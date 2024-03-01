@@ -42,3 +42,18 @@ exports.createNote = async (req, res) => {
         return res.redirect('/');
     }
 };
+
+exports.deleteNote = async (req, res) => {
+    
+    const notaID = req.body._id;
+
+    try {
+        await Nota.findByIdAndDelete(notaID);
+        req.flash('success_msg', 'Nota excluída com sucesso');
+        return res.redirect('/notas');
+    } catch (err) {
+        console.error(err);
+        req.flash('error_msg', 'Erro inesperado');
+        return res.redirect('/');
+    }
+};
