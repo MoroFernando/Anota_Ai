@@ -78,35 +78,6 @@ exports.signout = (req, res) => {
     res.redirect('/');
 };
 
-exports.listAllUsers = async (req, res) => {
-  try{
-    const Allusers = await User.find().sort({ email: 'asc' }).lean();
-    res.render('pages/users', { users: Allusers });
-  }catch(err){
-    console.error(err);
-    req.flash('error_msg', 'Erro inesperado');
-    return res.redirect('/');
-  }
-};
-
-exports.runAs = async (req, res) => {
-  const userId = req.params.id;
-
-  try{
-    const user = await User.findById(userId).lean();
-    if(!user){
-      req.flash('error_msg', 'Usuário não encontrado');
-      return res.redirect('/');
-    }
-    req.session.user = user;
-    return res.redirect('/');
-  }catch(err){
-    console.error(err);
-    req.flash('error_msg', 'Erro inesperado');
-    return res.redirect('/');
-  }
-};
-
 exports.deleteUser = async (req, res) => {
   const userId = req.params.id;
 

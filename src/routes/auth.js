@@ -1,18 +1,16 @@
 const Router = require('express').Router();
-const userController = require('../controllers/usersController');
+const authController = require('../controllers/authController');
 
 Router.get('/auth', (req, res) => {
   res.render('pages/login', {layout: 'auth.hbs'});
 });
 
-Router.post('/signup', userController.signup);
+Router.post('/signup', authController.signup);
 
-Router.post('/signin', userController.signin);
+Router.post('/signin', authController.signin);
 
-Router.post('/signout', userController.signout);
+Router.post('/signout', authController.signout);
 
-Router.get('/runAs/:id', userController.runAs);
-
-Router.get('/deleteUser/:id', userController.deleteUser);
+Router.get('/deleteUser/:id', authController.deleteUser);
 
 module.exports = Router;

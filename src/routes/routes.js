@@ -10,7 +10,7 @@ Router.use(
   require('./users'),
   require('./notes'),
   
-  // 404 ----------------
+  // 404 ---------------- TEM QUE SER A ÚLTIMA ROTA
   require('./notFound')
 );
 
