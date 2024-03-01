@@ -53,8 +53,8 @@ dialog .container {
 
 dialog::backdrop {
     background-color: rgba(0, 0, 0, .2);
-    backdrop-filter: blur(8px); 
-    -webkit-backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);  
 }
 
 #modal__removerNota {
@@ -286,7 +286,7 @@ height: 8px;
 
         & .sideBar--toggleIcon:hover {
             cursor: pointer;
-            scale: 1.2;
+            transform: scale(1.2);
         }
 
         & .sideBar--toggleIcon i {
@@ -428,7 +428,7 @@ height: 8px;
     & main {
 
         & .sideBar--toggleIcon {
-            rotate: 180deg;
+            transform: rotate(180deg);
             margin-right: -20px;
         }
 
@@ -681,8 +681,8 @@ height: 8px;
         border-radius: 20px;
         min-width: 70%;
         min-height: 50%;
-        backdrop-filter: blur(32px);
         -webkit-backdrop-filter: blur(32px);
+        backdrop-filter: blur(32px);
         box-shadow: var(--primaryDropShadow);
 
         & img {
