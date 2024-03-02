@@ -2,6 +2,8 @@ const Router = require('express').Router();
 const authOnly = require('../middlewares/authenticate');
 const notesController = require('../controllers/notesController');
 
+Router.get('/', authOnly, notesController.getMyNotes);
+
 Router.get('/notas', authOnly, notesController.getMyNotes);
 
 Router.get('/novaNota', authOnly, (req, res) => {

@@ -465,8 +465,10 @@ height: 8px;
     }
     & main {
         & .sideBar--toggleIcon {
-            transform: rotate(180deg);
             margin-right: -20px;
+        }
+        & .sideBar--toggleIcon:hover {
+            transform: scale(1.2);
         }
         & .sideBar--menuOptions {
             & a {
@@ -647,13 +649,13 @@ height: 8px;
         gap: 12px;
         box-shadow: none;
         background-color: transparent;
-        border: dashed 2px var(--text-color);
+        border: dashed 2px #B5B5B5;
         & i {
             font-size: 48px;
-            color: var(--text-color);
+            color: #B5B5B5;
         }
         & span {
-            color: var(--text-color);
+            color: #B5B5B5;
             font-size: 18px;
             font-weight: 500;
         };

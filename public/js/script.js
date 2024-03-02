@@ -1,7 +1,8 @@
 const body = document.body;
 const navHeader = document.querySelector('.sideBar');
 const navLogo = document.querySelector('.sideBar--logo');
-const navToggleIcon = document.querySelector('.sideBar--toggleIcon');
+const navToggleIconCircle = document.querySelector('.sideBar--toggleIcon');
+const navToggleIcon = document.querySelector('.sideBar--toggleIcon .material-icons');
 const navLightMode = document.querySelector('.sideBar--lightMode');
 const navLightModeIconCircle = document.querySelector('.sideBar--lightModeIcon');
 const navLightModeIcon = document.querySelector('.sideBar--lightModeIcon .material-icons');
@@ -14,8 +15,12 @@ window.onload = function() {
     const navBarCollapsed = localStorage.getItem('navBarCollapsed'); 
     if (navBarCollapsed !== 'true') {
         navHeader.classList.remove('sideBar--collapsed');
+        navToggleIconCircle.title = 'Recolher menu';
+        navToggleIcon.textContent = 'chevron_left';
     } else {
         navHeader.classList.add('sideBar--collapsed');
+        navToggleIconCircle.title = 'Expandir menu';
+        navToggleIcon.textContent = 'chevron_right';
     }
 
     //VERIFICA SE DARK MODE ESTA ATIVO
@@ -34,9 +39,10 @@ window.onload = function() {
 };
 
 // TOGGLE NAV BAR -----------------------------------
-navToggleIcon.addEventListener('click', () => {
+navToggleIconCircle.addEventListener('click', () => {
     navHeader.classList.toggle('sideBar--collapsed');
-    navToggleIcon.title = (navToggleIcon.title === 'Expandir menu') ?'Recolher menu' :'Expandir menu';
+    navToggleIconCircle.title = (navToggleIconCircle.title === 'Expandir menu') ?'Recolher menu' :'Expandir menu';
+    navToggleIcon.textContent = (navToggleIcon.textContent === 'chevron_left') ?'chevron_right' :'chevron_left';
 
     const navBarCollapsed = navHeader.classList.contains('sideBar--collapsed');
     localStorage.setItem('navBarCollapsed', navBarCollapsed);

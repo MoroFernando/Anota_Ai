@@ -1,9 +1,9 @@
 const Router = require('express').Router();
 const authOnly = require('../middlewares/authenticate');
 
-Router.get('/', authOnly, (req, res) => {
-  res.render('pages/home', { page: 'Home'});
-})
+Router.get('/home', authOnly, (req, res) => {
+    res.render('pages/home', { page: 'Home'});
+  })
 
 Router.use(
   require('./auth'),
