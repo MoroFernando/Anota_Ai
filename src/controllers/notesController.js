@@ -30,7 +30,7 @@ exports.getMyNotes = async (req, res) => {
 
 exports.createNote = async (req, res) => {
     const titulo = req.body.titulo;
-    const descricao = req.body.descricao;
+    const descricao = req.body.descricao.replace(/"/g, '\'');
     const user = req.session.user._id;
 
     try {
