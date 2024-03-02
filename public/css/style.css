@@ -568,6 +568,7 @@ height: 8px;
         border-radius: 20px;
         padding: 32px 20px;
         overflow: scroll;
+        flex-grow: 1;
     }
 }
 
