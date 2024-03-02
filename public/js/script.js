@@ -29,27 +29,40 @@ function toJSON(string) {
 }
 
 
-// POPUPS REMOVER NOTA ---------------------------------------------------------------------------
-const popupRemoverNota = document.getElementById('modal__removerNota');
-
-function openModal_removerNota(nota) {
-
+/// POPUPS ---------------------------------------------------------------------------
+// POPUP EDITAR
+const popupEditarNota = document.getElementById('modal__editarNota');
+function openModal_editarNota(nota) {
     const notaJSON = toJSON(nota);
+    popupEditarNota.showModal();
+    document.getElementById("editarNota_id").value = notaJSON._id;
+    document.getElementById("editarNota--titulo").value = notaJSON.titulo;
+    document.getElementById("editarNota--conteudo").value = notaJSON.conteudo;
+}
+function closeModal_editarNota(){
+    popupEditarNota.close();
+}
 
+// POPUP REMOVER
+const popupRemoverNota = document.getElementById('modal__removerNota');
+function openModal_removerNota(nota) {
+    const notaJSON = toJSON(nota);
     popupRemoverNota.showModal();
-
     document.getElementById("removeNota_id").value = notaJSON._id;
     document.getElementById("removerNota--titulo").textContent = notaJSON.titulo;
     document.getElementById("removerNota--conteudo").value = notaJSON.conteudo;
 }
-
 function closeModal_removerNota(){
     popupRemoverNota.close();
 }
 
-// FECHA POPUPS -------------------------------------------------------------------------
+
+// FECHA POPUPS AO CLICAR FORA  -------------------------------------------------------------------------
 popupRemoverNota.addEventListener('click', (event) => {
     if(event.target == popupRemoverNota) popupRemoverNota.close();
-})
+});
+popupEditarNota.addEventListener('click', (event) => {
+    if(event.target == popupEditarNota) popupEditarNota.close();
+});
 
  

@@ -134,6 +134,89 @@ dialog::backdrop {
     }
 }
 
+#modal__editarNota {
+    & form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        gap: 24px;
+        & legend {
+            text-align: center;
+            width: 100%;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        & .note {
+            display: flex;
+            flex-direction: column;
+            padding: 32px;
+            gap: 20px;
+            border-radius: 16px;
+            box-shadow: var(--primaryDropShadow);
+            background-color: var(--sidebar-color);
+            min-height: 320px;
+            & .note__titulo {
+                font-size: 24px;
+                font-weight: 600;
+                color: var(--text-color);
+                max-height: 40px;
+                border: dashed 1px #E3E3E3;
+                border-radius: 4px;
+                padding: 2px 8px;
+            }
+            & .note__titulo:focus {
+                border: none;
+                outline: solid 1px var(--primary-color);
+            }
+            & .note__content{
+                resize: none;
+                font-size: 16px;
+                font-weight: 400;
+                color: var(--text-color);
+                width: 100%;
+                padding: 8px;
+                height: 200px;
+                background-color: transparent;
+                border: dashed 1px #E3E3E3;
+                border-radius: 8px;
+            }
+            & .note__content:focus{
+                border: none;
+                outline: solid 1px var(--primary-color);
+            }
+        }
+        & .modal__editarNota--btns {
+            display: flex;
+            gap: 20px;
+        }
+        & button {
+            flex-grow: 1;
+            height: 48px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            color: #FFFFFF;
+            background-color: var(--primary-color);
+            outline: none;
+            transition: all, 0.3, ease;
+        }
+        & button:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            transition: all, 0.3, ease;
+        }
+        & .btnVoltar {
+            background-color: var(--text-color);
+            color: var(--sidebar-color);
+        }
+        & .btnEditar {
+            background-color: var(--primary-color);
+        }
+    }
+}
+
 /* CUSTOM SCROLLBAR ----------------------------------------------------------------------------------------------------------------------------*/
 ::-webkit-scrollbar {
     width: 6px;
