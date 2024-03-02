@@ -6,10 +6,9 @@
   <main>
     <span class="sideBar--toggleIcon" title="Recolher menu"><i class="material-icons">chevron_left</i></span>
     <ul class="sideBar--menuOptions">
-        <a title="Home" href="/"><li><i class="material-icons">home</i><span>Home</span></li></a> 
-        <a title="Notas" href="/notas"><li><i class="material-icons">note</i><span>Notas</span></li></a>
-        <a title="Perfil" href="/usuarios"><li><i class="material-icons">account_box</i><span>Perfil</span></li></a>
-        <a title="Nova nota" href="/novaNota"><li><i class="material-icons">note</i><span>Nova nota</span></li></a>
+        <a title="Home" {{#if (equal page 'Home')}} class="selected"{{/if}} href="/"><li><i class="material-icons">home</i><span>Home</span></li></a> 
+        <a title="Minhas notas"{{#if (equal page 'Minhas notas')}} class="selected"{{/if}}   href="/notas"><li><i class="material-icons">note</i><span>Notas</span></li></a>
+        <a title="Nova nota" {{#if (equal page 'Nova nota')}} class="selected"{{/if}}  href="/novaNota"><li><i class="material-icons">note</i><span>Nova nota</span></li></a>
     </ul>
   </main>
   <footer>

@@ -5,7 +5,7 @@ exports.getAllNotes = async (req, res) => {
     const notes = await Nota.find().lean();
     res.render('pages/notes', { 
         notes: notes,
-        tittle: 'Minhas Notas'
+        page: 'Minhas notas'
     });
   }catch(err){
     console.error(err);
@@ -19,7 +19,7 @@ exports.getMyNotes = async (req, res) => {
         const myNotes = await Nota.find({user_id: req.session.user._id}).sort({data_criacao: 'desc'}).lean();
         return res.render('pages/notes', {
             notes: myNotes,
-            title: 'Minhas Notas'
+            page: 'Minhas notas'
         });
     }catch (err){
         console.error(err);

@@ -4,12 +4,8 @@ const notesController = require('../controllers/notesController');
 
 Router.get('/notas', authOnly, notesController.getMyNotes);
 
-Router.post('/notas', (req, res) => {
-    res.sendStatus(200);
-});
-
 Router.get('/novaNota', authOnly, (req, res) => {
-  res.render('pages/addNote');
+  res.render('pages/addNote', { page: 'Nova nota'});
 });
 
 Router.post('/novaNota', authOnly, notesController.createNote);

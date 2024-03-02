@@ -9,6 +9,9 @@ module.exports = {
     jsonString = JSON.stringify(objectHandlebars);
 
     return jsonString;
-  }
+  },
 
+  equal: function(a, b) {
+    return a === b;
+  }
 }

@@ -1,26 +1,62 @@
-// SIDEBAR ------------------------------------------------------------------------------------------------
+const body = document.body;
 const navHeader = document.querySelector('.sideBar');
 const navLogo = document.querySelector('.sideBar--logo');
-const navToggle = document.querySelector('.sideBar--toggleIcon');
 const navToggleIcon = document.querySelector('.sideBar--toggleIcon');
 const navLightMode = document.querySelector('.sideBar--lightMode');
 const navLightModeIconCircle = document.querySelector('.sideBar--lightModeIcon');
 const navLightModeIcon = document.querySelector('.sideBar--lightModeIcon .material-icons');
 
-navToggle.addEventListener('click', () => {
-  navHeader.classList.toggle('sideBar--collapsed');
-  navToggleIcon.title = (navToggleIcon.title === 'Expandir menu') ?'Recolher menu' :'Expandir menu';
-});
 
+// LOCAL STORAGE -------------------------------------
+window.onload = function() {
+
+    // VERIFICA SE NAV BAR ESTA COLAPSADA
+    const navBarCollapsed = localStorage.getItem('navBarCollapsed'); 
+    if (navBarCollapsed !== 'true') {
+        navHeader.classList.remove('sideBar--collapsed');
+    } else {
+        navHeader.classList.add('sideBar--collapsed');
+    }
+
+    //VERIFICA SE DARK MODE ESTA ATIVO
+    const darkModeActive = localStorage.getItem('darkModeActive'); 
+    if (darkModeActive !== 'true') {
+        body.classList.remove('darkMode');
+        navLightModeIconCircle.classList.remove('dark');
+        navLightMode.title = 'Modo claro';
+        navLightModeIcon.textContent = 'light_mode';
+    } else {
+        body.classList.add('darkMode');
+        navLightModeIconCircle.classList.add('dark');
+        navLightMode.title = 'Modo escuro';
+        navLightModeIcon.textContent = 'dark_mode';
+    }
+};
+
+// TOGGLE NAV BAR -----------------------------------
+navToggleIcon.addEventListener('click', () => {
+    navHeader.classList.toggle('sideBar--collapsed');
+    navToggleIcon.title = (navToggleIcon.title === 'Expandir menu') ?'Recolher menu' :'Expandir menu';
+
+    const navBarCollapsed = navHeader.classList.contains('sideBar--collapsed');
+    localStorage.setItem('navBarCollapsed', navBarCollapsed);
+});
 navLogo.addEventListener('click', () => {
   navHeader.classList.toggle('sideBar--collapsed');
+
+  const navBarCollapsed = navHeader.classList.contains('sideBar--collapsed');
+  localStorage.setItem('navBarCollapsed', navBarCollapsed);
 });
 
+// TOGGLE DARK/LIGHT MODE ---------------------------
 navLightMode.addEventListener('click', () => {
-  document.body.classList.toggle('darkMode');
-  navLightModeIconCircle.classList.toggle('dark');
-  navLightMode.title = (navLightMode.title === 'Modo claro') ?'Modo escuro' :'Modo claro';
-  navLightModeIcon.textContent = (navLightModeIcon.textContent === 'dark_mode') ?'light_mode' :'dark_mode';
+    body.classList.toggle('darkMode');
+    navLightModeIconCircle.classList.toggle('dark');
+    navLightMode.title = (navLightMode.title === 'Modo claro') ?'Modo escuro' :'Modo claro';
+    navLightModeIcon.textContent = (navLightModeIcon.textContent === 'dark_mode') ?'light_mode' :'dark_mode';
+
+    const darkModeActive = body.classList.contains('darkMode');
+    localStorage.setItem('darkModeActive', darkModeActive);
 });
 
 // FORAMATA ESCAPES JSON -------------------------------------------------------------------
@@ -28,8 +64,6 @@ function toJSON(string) {
   return JSON.parse(string.replace(/\r\n/g, '\\r\\n'));
 }
 
-
-/// POPUPS ---------------------------------------------------------------------------
 // POPUP EDITAR
 const popupEditarNota = document.getElementById('modal__editarNota');
 function openModal_editarNota(nota) {
@@ -55,7 +89,6 @@ function openModal_removerNota(nota) {
 function closeModal_removerNota(){
     popupRemoverNota.close();
 }
-
 
 // FECHA POPUPS AO CLICAR FORA  -------------------------------------------------------------------------
 popupRemoverNota.addEventListener('click', (event) => {
