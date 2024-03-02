@@ -2,8 +2,19 @@
     <div class="container">
         <form action="/editarNota" method="POST">
 
-            <legend>Editar nota</legend>
+            <legend>Editar Nota</legend>
 
+            <div class="note">
+                <input type="text" name="titulo" class="note__titulo" id="editarNota--titulo"></input>
+                <textarea class="note__content" name="conteudo" id="editarNota--conteudo"></textarea>
+            </div>
+
+            <input type="hidden" name="_id" id="editarNota_id">
+
+            <div class="modal__editarNota--btns">
+                <button class="btnEditar" type="submit">Salvar</button>
+                <button class="btnVoltar" type="button" onclick="closeModal_editarNota()">Cancelar</button>
+            </div>
         </form>
     </div>
 </dialog>

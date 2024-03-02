@@ -16,4 +16,6 @@ Router.post('/novaNota', authOnly, notesController.createNote);
 
 Router.post('/removerNota', authOnly, notesController.deleteNote);
 
+Router.post('/editarNota', authOnly, notesController.editNote);
+
 module.exports = Router;

@@ -34,7 +34,7 @@ exports.createNote = async (req, res) => {
     const user = req.session.user._id;
 
     try {
-        const newNote = await Nota.create({ titulo: titulo, conteudo: descricao, user_id: user });
+        await Nota.create({ titulo: titulo, conteudo: descricao, user_id: user });
         return res.redirect('/notas');
     } catch (err) {
         console.error(err);
@@ -50,6 +50,26 @@ exports.deleteNote = async (req, res) => {
     try {
         await Nota.findByIdAndDelete(notaID);
         req.flash('success_msg', 'Nota excluída com sucesso');
+        return res.redirect('/notas');
+    } catch (err) {
+        console.error(err);
+        req.flash('error_msg', 'Erro inesperado');
+        return res.redirect('/');
+    }
+};
+
+exports.editNote = async (req, res) => {
+
+    const notaID = req.body._id;
+    const notaTitulo = req.body.titulo;
+    const notaConteudo = req.body.conteudo;
+
+    try {
+        await Nota.findByIdAndUpdate(notaID, {
+            titulo: notaTitulo,
+            conteudo: notaConteudo
+        })
+        req.flash('success_msg', 'Nota Editada com sucesso');
         return res.redirect('/notas');
     } catch (err) {
         console.error(err);
