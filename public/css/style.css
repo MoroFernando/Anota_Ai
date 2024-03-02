@@ -158,6 +158,7 @@ dialog::backdrop {
             background-color: var(--sidebar-color);
             min-height: 320px;
             & .note__titulo {
+                background-color: transparent;
                 font-size: 24px;
                 font-weight: 600;
                 color: var(--text-color);
@@ -347,7 +348,6 @@ height: 8px;
             margin-bottom: 12px;
             align-self: flex-end;
             margin-right: -30px;
-            transition: all 0.3s ease;
         }
         & .sideBar--toggleIcon:hover {
             cursor: pointer;
@@ -378,14 +378,14 @@ height: 8px;
                     font-size: 24px;
                 }
             }
-            & a:hover {
+            & a:hover, a.selected {
                 cursor: pointer;
                 background-color: var(--primary-color);
                 transition: background-color 0.3s ease;
                 & li {
-                    color: var(--sidebar-color);
+                    color: white;
                     & i {
-                        color: var(--sidebar-color);
+                        color: white;
                     }
                 }
             } 
@@ -402,29 +402,26 @@ height: 8px;
             align-items: center;
             align-self: center;
             background-color: var(--body-color);
-            padding: 2px;
+            padding: 4px;
             border-radius: 60px;
             width: 80px;
-            transition: all 0.3s ease;
             & .sideBar--lightModeIcon {
                 position: relative;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 background-color: var(--sidebar-color);
-                box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1) inset;
                 border-radius: 50%;
                 padding: 8px;
-                transition: all 0.3s ease;
+                transition: transform 0.3s ease;
             }
             & .sideBar--lightModeIcon.dark {
-                transform: translateX(40px) rotate(360deg);
-                transition: all 0.3s ease;
+                transform: translateX(36px) rotate(360deg);
+                transition: transform 0.3s ease;
             }
             & i {
                 color: var(--primary-color);
                 font-size: 20px;
-                transition: all 0.3s ease;
             }
         }
         & .sideBar--lightMode:hover {
@@ -571,6 +568,7 @@ height: 8px;
         border-radius: 20px;
         padding: 32px 20px;
         overflow: scroll;
+        flex-grow: 1;
     }
 }
 
