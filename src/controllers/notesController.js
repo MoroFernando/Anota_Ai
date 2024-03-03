@@ -69,7 +69,7 @@ exports.editNote = async (req, res) => {
             titulo: notaTitulo,
             conteudo: notaConteudo
         })
-        req.flash('success_msg', 'Nota Editada com sucesso');
+        req.flash('success_msg', 'Nota editada com sucesso');
         return res.redirect('/notas');
     } catch (err) {
         console.error(err);
