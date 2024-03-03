@@ -1,4 +1,4 @@
-# Anota Aí - https://anota-ai-qn9w.onrender.com
+# Anota Aí - https://anota-ai-1.onrender.com
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/MoroFernando/Anota_Ai/blob/main/LICENSE) 
 
 # Sobre o projeto
