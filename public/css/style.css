@@ -270,14 +270,25 @@ height: 8px;
 
 /* FLASH MESSAGES ------------------------------------------------------------------------------------------------------------------------------*/
 .flash_msg {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 500;
     color: #FFFFFF;
-    padding: 8px 24px;
+    padding: 16px 32px 16px 24px;
     border-radius: 8px;
-    margin: 2px;
+    box-shadow: var(--primaryDropShadow);
+
+    & i {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        font-size: 14px;
+        cursor: pointer;
+    }
 }
 
 .flash_msg.hidden {
