@@ -5,13 +5,6 @@
             <h2 class="notes__titulo">{{this.titulo}}</h2>
             <textarea class="notes__content" readonly disabled placeholder="Conteúdo">{{this.conteudo}}</textarea>
             <div class="notes__footer">
-                <form action="/finalizarNota" method="POST">
-                    <input type="hidden" name="notaId" value="{{this._id}}">
-                    <button type="submit" class="notes__footer--btn finalizarBtn">
-                        <i class="material-icons">done</i>
-                        <span>{{#if this.finalizada}}Não finalizada{{else}}Finalizar{{/if}}</span>
-                    </button>
-                </form>
                 <button class="notes__footer--btn editBtn" onclick="openModal_editarNota('{{json this}}')">
                     <i class="material-icons">mode_edit_outline</i>
                     <span>Editar</span>

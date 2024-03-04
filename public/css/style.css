@@ -746,6 +746,12 @@ height: 8px;
                 }
             }
         }
+        & .notes__data {
+            display: flex;
+            flex-grow: 1;
+            font-size: 11px;
+            color: var(--text-color);
+        }
     }
     & .emptyNotes {
         justify-content: center;
