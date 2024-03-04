@@ -10,14 +10,14 @@ const express = require('express');
 const app = express();
 
 // DATABASE --------------------------------------------------------------------
-const connectDatabase = require('./src/config/database').connectDatabase;
+const connectDatabase = require('./config/database').connectDatabase;
 connectDatabase();
 
 // MIDDLEWARES -----------------------------------------------------------------
-const session = require('./src/middlewares/session');
-const sessionUser = require('./src/middlewares/sessionUser');
+const session = require('./middlewares/session');
+const sessionUser = require('./middlewares/sessionUser');
 const flash = require('connect-flash');
-const flashMessages = require('./src/middlewares/flashMessages');
+const flashMessages = require('./middlewares/flashMessages');
 
 app.use(
   express.json(), 
@@ -30,13 +30,13 @@ app.use(
 );
 
 // TEMPLATE ENGINE -------------------------------------------------------------
-const handlebars = require('./src/config/handlebars');
+const handlebars = require('./config/handlebars');
 app.engine('hbs', handlebars());
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'src', 'views'));
 
 // ROTAS -----------------------------------------------------------------------
-const routes = require('./src/routes/routes');
+const routes = require('./routes/routes');
 app.use(routes);
 
 const PORT = process.env.PORT || 3000;
