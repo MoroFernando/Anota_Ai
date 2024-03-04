@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon src/app",
-    "start": "node src/app.js"
+    "dev": "nodemon app",
+    "start": "node app.js"
   },
   "author": "Fernando Moro",
   "license": "ISC",
