@@ -79,10 +79,10 @@ dialog::backdrop {
             border-radius: 16px;
             box-shadow: var(--primaryDropShadow);
             background-color: var(--sidebar-color);
-            min-height: 320px;
+            min-height: 220px;
     
             & .note__titulo {
-                font-size: 24px;
+                font-size: 18px;
                 font-weight: 600;
                 color: var(--text-color);
                 max-height: 40px;
@@ -90,12 +90,12 @@ dialog::backdrop {
     
             & .note__content{
                 resize: none;
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 400;
                 color: var(--text-color);
                 width: 100%;
                 padding: 0px 16px;
-                height: 200px;
+                height: 160px;
                 background-color: transparent;
                 border: none;
             }
@@ -113,7 +113,7 @@ dialog::backdrop {
             height: 48px;
             border: none;
             border-radius: 6px;
-            font-size: 18px;
+            font-size: 16px;
             color: #FFFFFF;
             background-color: var(--primary-color);
             outline: none;
@@ -153,13 +153,13 @@ dialog::backdrop {
             flex-direction: column;
             padding: 32px;
             gap: 20px;
-            border-radius: 16px;
+            border-radius: 18px;
             box-shadow: var(--primaryDropShadow);
             background-color: var(--sidebar-color);
-            min-height: 320px;
+            min-height: 220px;
             & .note__titulo {
                 background-color: transparent;
-                font-size: 24px;
+                font-size: 18px;
                 font-weight: 600;
                 color: var(--text-color);
                 max-height: 40px;
@@ -173,12 +173,12 @@ dialog::backdrop {
             }
             & .note__content{
                 resize: none;
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 400;
                 color: var(--text-color);
                 width: 100%;
                 padding: 8px;
-                height: 200px;
+                height: 160px;
                 background-color: transparent;
                 border: dashed 1px #E3E3E3;
                 border-radius: 8px;
@@ -197,7 +197,7 @@ dialog::backdrop {
             height: 48px;
             border: none;
             border-radius: 6px;
-            font-size: 18px;
+            font-size: 16px;
             color: #FFFFFF;
             background-color: var(--primary-color);
             outline: none;
@@ -542,14 +542,13 @@ height: 8px;
         box-shadow: var(--primaryDropShadow);
         align-items: center;
         justify-content: space-between;
-        padding: 12px 32px;
+        padding: 8px 32px;
         border-radius: 20px;
-        min-height: 80px;
         margin: 12px 12px 0px;
         & .content--title {
             color: var(--text-color);
             text-transform: uppercase;
-            font-size: 24px;
+            font-size: 20px;
         }
         & .content--profileInfos {
             display: flex;
@@ -558,15 +557,15 @@ height: 8px;
             justify-content: center;
             column-gap: 12px;
             border-radius: 12px;
-            padding: 8px 24px;
+            padding: 8px 16px;
             & .content--profilePhoto {
-                width: 40px;
-                height: 40px;
+                width: 32px;
+                height: 32px;
                 border-radius: 50%;
             }
             & .content--profileName {
                 color: var(--text-color);
-                font-size: 14px;
+                font-size: 12px;
                 letter-spacing: 1px;
                 font-weight: 400;
             }
@@ -586,11 +585,84 @@ height: 8px;
 }
 
 /* NOTES ----------------------------------------------------------------------------------------------------------------------------------*/
+.addNote {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: var(--primaryDropShadow);
+    background-color: var(--sidebar-color);
+    max-width: 500px;
+    & form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        gap: 24px;
+        & legend {
+            text-align: center;
+            width: 100%;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        & input {
+            background-color: transparent;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-color);
+            max-height: 40px;
+            border: solid 1px #E3E3E3;
+            border-radius: 4px;
+            padding: 2px 8px;
+        }
+        & input:focus {
+            border: none;
+            outline: solid 1px var(--primary-color);
+        }
+        & input::placeholder, textarea::placeholder{
+            color: #E3E3E3;
+        }
+        & textarea{
+            resize: none;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-color);
+            width: 100%;
+            padding: 8px;
+            height: 160px;
+            background-color: transparent;
+            border: solid 1px #E3E3E3;
+            border-radius: 8px;
+        }
+        & textarea:focus{
+            border: none;
+            outline: solid 1px var(--primary-color);
+        }
+        & button {
+            flex-grow: 1;
+            height: 48px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #FFFFFF;
+            background-color: var(--primary-color);
+            outline: none;
+            transition: all, 0.3, ease;
+        }
+        & button:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            transition: all, 0.3, ease;
+        }
+    }
+}
+
 .notesGrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
     & .notes {
         display: flex;
         flex-direction: column;
@@ -599,21 +671,21 @@ height: 8px;
         border-radius: 16px;
         box-shadow: var(--primaryDropShadow);
         background-color: var(--sidebar-color);
-        min-height: 320px;
+        min-height: 220px;
         & .notes__titulo {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 600;
             color: var(--text-color);
             max-height: 40px;
         }
         & .notes__content{
             resize: none;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 400;
             color: var(--text-color);
             width: 100%;
             padding: 0px 16px;
-            height: 200px;
+            height: 120px;
             background-color: transparent;
             border: none;
         }
@@ -631,7 +703,7 @@ height: 8px;
                 padding: 10px;
                 border-radius: 20px;
                 color: var(--sidebar-color);
-                font-size: 14px;
+                font-size: 12px;
                 letter-spacing: 1px;
                 transition: all 0.3s ease;
                 & i {

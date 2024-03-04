@@ -35,6 +35,7 @@ exports.createNote = async (req, res) => {
 
     try {
         await Nota.create({ titulo: titulo, conteudo: descricao, user_id: user });
+        req.flash('success_msg', 'Nota criada');
         return res.redirect('/notas');
     } catch (err) {
         console.error(err);
