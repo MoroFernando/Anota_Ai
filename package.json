@@ -20,6 +20,7 @@
     "express-handlebars": "^7.1.2",
     "express-session": "^1.18.0",
     "memorystore": "^1.6.7",
+    "moment": "^2.30.1",
     "mongoose": "^8.1.2",
     "path": "^0.12.7"
   },
