@@ -702,6 +702,8 @@ height: 8px;
                 background-color: var(--text-color);
                 padding: 10px;
                 border-radius: 20px;
+                outline: none;
+                border: none;
                 color: var(--sidebar-color);
                 font-size: 12px;
                 letter-spacing: 1px;
@@ -721,8 +723,27 @@ height: 8px;
                     display: block;
                 }
             }
-            & .editBtn {
+            & .finalizarBtn {
                 background-color: var(--primary-color);
+                
+            }
+        }
+    }
+    & .notes__finalizada {
+        background-color: var(--primary-color-light);
+        box-shadow: none;
+        & .notes__titulo, .notes__content {
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+        & .notes__footer {
+            opacity: 0.8;
+            & .notes__footer--btn{
+                background-color: var(--primary-color-light);
+                border: dashed 1px var(--primary-color);
+                & i, span {
+                    color: var(--primary-color);
+                }
             }
         }
     }

@@ -78,3 +78,20 @@ exports.editNote = async (req, res) => {
         return res.redirect('/');
     }
 };
+
+exports.endNote = async (req, res) => {
+    const notaID = req.body.notaId;
+
+    try {
+        const nota = await Nota.findById(notaID);
+        nota.finalizada = !nota.finalizada;
+        await nota.save();
+        
+        req.flash('success_msg', 'Nota finalizada');
+        return res.redirect('/notas');
+    } catch (err) {
+        console.error(err);
+        req.flash('error_msg', 'Erro inesperado');
+        return res.redirect('/');
+    }
+;}
