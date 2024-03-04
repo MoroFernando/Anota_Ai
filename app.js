@@ -9,6 +9,10 @@ dotenv.config();
 const express = require('express');
 const app = express();
 
+// DATABASE --------------------------------------------------------------------
+const connectDatabase = require('./src/config/database').connectDatabase;
+connectDatabase();
+
 // MIDDLEWARES -----------------------------------------------------------------
 const session = require('./src/middlewares/session');
 const sessionUser = require('./src/middlewares/sessionUser');
@@ -30,10 +34,6 @@ const handlebars = require('./src/config/handlebars');
 app.engine('hbs', handlebars());
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'src', 'views'));
-
-// DATABASE --------------------------------------------------------------------
-const connectDatabase = require('./src/config/database').connectDatabase;
-connectDatabase();
 
 // ROTAS -----------------------------------------------------------------------
 const routes = require('./src/routes/routes');
