@@ -1,7 +1,7 @@
 :root {
     --body-color: rgb(228, 233, 247);
     --sidebar-color: rgb(255, 255, 255);
-    --primary-color: rgb(105, 92, 254);
+    --primary-color: #695cfe;
     --primary-color-light: rgba(105, 92, 254, 0.1);
     --toggle-color: rgb(221, 221, 221);
     --text-color: rgb(112, 112, 112);
@@ -267,6 +267,39 @@ height: 8px;
     --primaryDropShadow: 2px 2px 8px 4px rgba(255, 255, 255, 0.1);
 }
 
+/* 404 NOT FOUND --------------------------------------------------------------------------------------------------------------*/
+.notFound {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background: url('/img/not_found_bg.jpg') center / cover no-repeat;
+    & h1 {
+        margin-top: 20%;
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+    & p {
+        font-size: 16px;
+        font-weight: 400;
+        color: var(--text-color);
+    }
+    & a {
+        color: var(--sidebar-color);
+        transition: transform 0.3s ease;
+        padding: 8px 20px;
+        border-radius: 32px;
+        background-color: var(--primary-color);
+        box-shadow: var(--primaryDropShadow);
+    }
+    & a:hover {
+        transition: transform 0.3s ease;
+        transform: scale(1.1);
+    }
+}
 
 /* FLASH MESSAGES ------------------------------------------------------------------------------------------------------------------------------*/
 .flash_msg {
@@ -736,14 +769,13 @@ height: 8px;
         }
     }
     & .notes__finalizada {
+        opacity: 0.5;
         background-color: var(--primary-color-light);
         box-shadow: none;
         & .notes__titulo, .notes__content {
             text-decoration: line-through;
-            opacity: 0.8;
         }
         & .notes__footer {
-            opacity: 0.8;
             & .notes__footer--btn{
                 background-color: var(--primary-color-light);
                 border: dashed 1px var(--primary-color);

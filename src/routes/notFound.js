@@ -1,7 +1,7 @@
 const Router = require('express').Router();
 
 Router.get('*', (req, res) => {
-  res.sendStatus(404).send('Página não encontrada');
+  res.render('pages/404', { layout: '404' });
 });
 
 module.exports = Router;
