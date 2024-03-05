@@ -694,7 +694,6 @@ height: 8px;
 .notesFilters {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
     gap: 20px;
     align-items: center;
     justify-content: space-between;
@@ -738,7 +737,7 @@ height: 8px;
             font-size: 14px;
         }
     }
-    & .notesFilters--exibirFinalizadas .active{
+    & .notesFilters--exibirFinalizadas.active{
         background-color: var(--primary-color);
         border: solid 1px var(--primary-color);
         cursor: pointer;
@@ -827,6 +826,9 @@ height: 8px;
                 
             }
         }
+    }
+    & .notes.hidden {
+        display: none;
     }
     & .notes__finalizada {
         opacity: 0.5;

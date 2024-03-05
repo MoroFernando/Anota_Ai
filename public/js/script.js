@@ -104,4 +104,11 @@ popupEditarNota.addEventListener('click', (event) => {
     if(event.target == popupEditarNota) popupEditarNota.close();
 });
 
- 
+// FILTROS MINHAS NOTAS ------------------------------------------------------------------------------------------
+function filtraNotasFinalizadas() {
+    const filtro = document.querySelector('.notesFilters--exibirFinalizadas');
+    filtro.classList.toggle('active');
+
+    const notas = document.querySelectorAll('.notes__finalizada');
+    notas.forEach(nota => nota.classList.toggle('hidden'));
+}
