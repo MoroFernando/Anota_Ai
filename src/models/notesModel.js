@@ -12,6 +12,10 @@ const noteSchema = database.Schema({
     type: Date,
     default: Date.now
   },
+  finalizada: {
+    type: Boolean,
+    default: false
+  },
   user_id: {
     type: database.Schema.Types.ObjectId,
     ref: User.modelName,
