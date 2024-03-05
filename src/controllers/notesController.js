@@ -16,9 +16,15 @@ exports.getAllNotes = async (req, res) => {
 
 exports.getMyNotes = async (req, res) => {
     try{
-        const myNotes = await Nota.find({user_id: req.session.user._id}).sort({data_criacao: 'desc'}).lean();
+        const todasMinhasNotas = await Nota.find({user_id: req.session.user._id}).sort({data_criacao: 'desc'}).lean();
+
+        const notasFinalizadas = todasMinhasNotas.filter(nota => nota.finalizada);
+        const notasNaoFinalizadas = todasMinhasNotas.filter(nota => !nota.finalizada);
+
+        const notas = notasNaoFinalizadas.concat(notasFinalizadas);
+
         return res.render('pages/notes', {
-            notes: myNotes,
+            notes: notas,
             page: 'Minhas notas'
         });
     }catch (err){
@@ -84,7 +90,16 @@ exports.endNote = async (req, res) => {
 
     try {
         const nota = await Nota.findById(notaID);
-        nota.finalizada = !nota.finalizada;
+
+        if (!nota.finalizada){
+            nota.finalizada = true;
+            nota.data_finalizacao = Date.now();
+        } else {
+            nota.finalizada = false;
+            nota.data_finalizacao = undefined;
+            delete nota.data_finalizacao;
+        }
+        
         await nota.save();
         
         req.flash('success_msg', 'Nota finalizada');
