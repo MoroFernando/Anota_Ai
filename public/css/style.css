@@ -712,12 +712,15 @@ height: 8px;
         }
         & input {
             padding: 4px;
-            outline-color: none;
+            outline: none;
             border: none;
             outline: none;
             flex-grow: 1;
             color: var(--text-color);
             background-color: var(--sidebar-color);
+        }
+        & input::placeholder {
+            opacity: 0.4;
         }
     }
     & .notesFilters--exibirFinalizadas, .notesFilters--ordenarPorData{
