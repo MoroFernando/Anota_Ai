@@ -112,3 +112,20 @@ function filtraNotasFinalizadas() {
     const notas = document.querySelectorAll('.notes__finalizada');
     notas.forEach(nota => nota.classList.toggle('hidden'));
 }
+
+// FILTROS POR TITULO DA NOTA ----------------------------------------------------------------------------------
+const inputBusca = document.getElementById('notesFilters--searchBar__inputValue');
+const notes = document.querySelectorAll('.notes');
+
+inputBusca.addEventListener('input', () => {
+    console.log('-------------------------------------------------------');
+    notes.forEach((note) => {
+        const noteTitulo = note.querySelector('.notes__titulo').innerText;
+        console.log(noteTitulo);
+        if(noteTitulo.toLowerCase().includes(inputBusca.value.toLowerCase())) {
+            note.classList.remove('hidden');
+        } else {
+            note.classList.add('hidden');
+        }
+    })
+})
