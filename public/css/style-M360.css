@@ -717,6 +717,7 @@ height: 8px;
             outline: none;
             flex-grow: 1;
             color: var(--text-color);
+            background-color: var(--sidebar-color);
         }
     }
     & .notesFilters--exibirFinalizadas, .notesFilters--ordenarPorData{
@@ -783,7 +784,7 @@ height: 8px;
         }
         & .notes__footer {
             display: flex;
-            gap: 6px;
+            gap: 12px;
             align-items: center;
             justify-content: flex-end;
             & .notes__data {
@@ -803,7 +804,7 @@ height: 8px;
                 outline: none;
                 border: none;
                 color: var(--sidebar-color);
-                font-size: 11px;
+                font-size: 12px;
                 letter-spacing: 1px;
                 transition: all 0.3s ease;
                 & i {
@@ -814,7 +815,7 @@ height: 8px;
                 }
             }
             & .notes__footer--btn:hover {
-                padding: 8px 12px;
+                padding: 8px 16px;
                 cursor: pointer;
                 transition: all 0.3s ease;
                 & span {
