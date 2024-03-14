@@ -717,6 +717,7 @@ height: 8px;
             outline: none;
             flex-grow: 1;
             color: var(--text-color);
+            background-color: var(--sidebar-color);
         }
     }
     & .notesFilters--exibirFinalizadas, .notesFilters--ordenarPorData{
