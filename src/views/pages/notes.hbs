@@ -1,7 +1,7 @@
 <div class="notesGrid">
     {{#each notes}}
     
-        <div class="notes {{#if this.finalizada}}notes__finalizada{{/if}}" >
+        <div class="notes {{#if this.finalizada}}notes__finalizada hidden{{/if}}" >
             
             <h2 class="notes__titulo">{{this.titulo}}</h2>
             <textarea class="notes__content" readonly disabled placeholder="Conteúdo">{{this.conteudo}}</textarea>
